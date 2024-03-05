@@ -13,4 +13,8 @@ struct Employee: Codable {
     let avatarUrl: String
     let firstName, lastName, userTag, department: String
     let position, birthday, phone: String
+    
+    func getEmployeeFullName() -> String {
+        return "\(firstName) \(lastName)"
+    }
 }
