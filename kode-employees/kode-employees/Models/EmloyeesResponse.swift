@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - EmployeeResponse
-struct EmployeeResponse: Codable {
-    let employees: [Employee]
+// MARK: - EmployeesResponse
+struct EmployeesResponse: Codable {
+    let items: [Employee]
 }

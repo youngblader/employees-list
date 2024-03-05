@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Employee
 struct Employee: Codable {
     let id: String
-    let avatarURL: String
+    let avatarUrl: String
     let firstName, lastName, userTag, department: String
     let position, birthday, phone: String
 }
