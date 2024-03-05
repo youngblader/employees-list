@@ -7,18 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44857E652B971B7900FFDDB3 /* DetailsEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E642B971B7900FFDDB3 /* DetailsEmployeeViewController.swift */; };
+		44857E682B971D0800FFDDB3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E672B971D0800FFDDB3 /* SnapKit */; };
+		44857E702B971EB500FFDDB3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E6F2B971EB500FFDDB3 /* SDWebImage */; };
+		44857E722B971EB500FFDDB3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E712B971EB500FFDDB3 /* SDWebImageMapKit */; };
+		44857E742B971ED400FFDDB3 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E732B971ED400FFDDB3 /* EmployeesViewController.swift */; };
+		44857E762B971F8200FFDDB3 /* Di.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E752B971F8200FFDDB3 /* Di.swift */; };
+		44857E782B971FA200FFDDB3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E772B971FA200FFDDB3 /* Router.swift */; };
+		44857E7A2B971FC600FFDDB3 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E792B971FC600FFDDB3 /* ScreenFactory.swift */; };
+		44857E7C2B9721D800FFDDB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E7B2B9721D800FFDDB3 /* UIColor.swift */; };
 		448DD2012B962E29008F159E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DD2002B962E29008F159E /* AppDelegate.swift */; };
 		448DD2032B962E29008F159E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DD2022B962E29008F159E /* SceneDelegate.swift */; };
-		448DD2052B962E29008F159E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DD2042B962E29008F159E /* ViewController.swift */; };
 		448DD20A2B962E2A008F159E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448DD2092B962E2A008F159E /* Assets.xcassets */; };
 		448DD20D2B962E2A008F159E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448DD20B2B962E2A008F159E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44857E642B971B7900FFDDB3 /* DetailsEmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsEmployeeViewController.swift; sourceTree = "<group>"; };
+		44857E732B971ED400FFDDB3 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
+		44857E752B971F8200FFDDB3 /* Di.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Di.swift; sourceTree = "<group>"; };
+		44857E772B971FA200FFDDB3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		44857E792B971FC600FFDDB3 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		44857E7B2B9721D800FFDDB3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		448DD1FD2B962E29008F159E /* kode-employees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kode-employees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		448DD2002B962E29008F159E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		448DD2022B962E29008F159E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		448DD2042B962E29008F159E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		448DD2092B962E2A008F159E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		448DD20C2B962E2A008F159E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		448DD20E2B962E2A008F159E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,12 +42,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44857E702B971EB500FFDDB3 /* SDWebImage in Frameworks */,
+				44857E722B971EB500FFDDB3 /* SDWebImageMapKit in Frameworks */,
+				44857E682B971D0800FFDDB3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44857E622B97117600FFDDB3 /* EmployeesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44857E732B971ED400FFDDB3 /* EmployeesViewController.swift */,
+			);
+			path = EmployeesViewController;
+			sourceTree = "<group>";
+		};
+		44857E632B97118300FFDDB3 /* DetailsEmployeeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44857E642B971B7900FFDDB3 /* DetailsEmployeeViewController.swift */,
+			);
+			path = DetailsEmployeeViewController;
+			sourceTree = "<group>";
+		};
 		448DD1F42B962E29008F159E = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +102,9 @@
 			children = (
 				448DD2002B962E29008F159E /* AppDelegate.swift */,
 				448DD2022B962E29008F159E /* SceneDelegate.swift */,
+				44857E752B971F8200FFDDB3 /* Di.swift */,
+				44857E772B971FA200FFDDB3 /* Router.swift */,
+				44857E792B971FC600FFDDB3 /* ScreenFactory.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -77,7 +112,8 @@
 		448DD2152B962E39008F159E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				448DD2042B962E29008F159E /* ViewController.swift */,
+				44857E632B97118300FFDDB3 /* DetailsEmployeeViewController */,
+				44857E622B97117600FFDDB3 /* EmployeesViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -116,6 +152,7 @@
 		448DD21A2B962E75008F159E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				44857E7B2B9721D800FFDDB3 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -136,6 +173,11 @@
 			dependencies = (
 			);
 			name = "kode-employees";
+			packageProductDependencies = (
+				44857E672B971D0800FFDDB3 /* SnapKit */,
+				44857E6F2B971EB500FFDDB3 /* SDWebImage */,
+				44857E712B971EB500FFDDB3 /* SDWebImageMapKit */,
+			);
 			productName = "kode-employees";
 			productReference = 448DD1FD2B962E29008F159E /* kode-employees.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +206,10 @@
 				Base,
 			);
 			mainGroup = 448DD1F42B962E29008F159E;
+			packageReferences = (
+				44857E662B971D0800FFDDB3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				44857E6E2B971EB500FFDDB3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 448DD1FE2B962E29008F159E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -190,9 +236,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448DD2052B962E29008F159E /* ViewController.swift in Sources */,
+				44857E652B971B7900FFDDB3 /* DetailsEmployeeViewController.swift in Sources */,
 				448DD2012B962E29008F159E /* AppDelegate.swift in Sources */,
+				44857E7A2B971FC600FFDDB3 /* ScreenFactory.swift in Sources */,
 				448DD2032B962E29008F159E /* SceneDelegate.swift in Sources */,
+				44857E762B971F8200FFDDB3 /* Di.swift in Sources */,
+				44857E7C2B9721D800FFDDB3 /* UIColor.swift in Sources */,
+				44857E782B971FA200FFDDB3 /* Router.swift in Sources */,
+				44857E742B971ED400FFDDB3 /* EmployeesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +457,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		44857E662B971D0800FFDDB3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		44857E6E2B971EB500FFDDB3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44857E672B971D0800FFDDB3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44857E662B971D0800FFDDB3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		44857E6F2B971EB500FFDDB3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44857E6E2B971EB500FFDDB3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		44857E712B971EB500FFDDB3 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44857E6E2B971EB500FFDDB3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 448DD1F52B962E29008F159E /* Project object */;
 }
