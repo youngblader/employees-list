@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44857E652B971B7900FFDDB3 /* DetailsEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E642B971B7900FFDDB3 /* DetailsEmployeeViewController.swift */; };
+		44857E652B971B7900FFDDB3 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E642B971B7900FFDDB3 /* EmployeeDetailsViewController.swift */; };
 		44857E682B971D0800FFDDB3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E672B971D0800FFDDB3 /* SnapKit */; };
 		44857E702B971EB500FFDDB3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E6F2B971EB500FFDDB3 /* SDWebImage */; };
 		44857E722B971EB500FFDDB3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E712B971EB500FFDDB3 /* SDWebImageMapKit */; };
@@ -42,6 +42,7 @@
 		44857EBE2B975E7F00FFDDB3 /* DepartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857EBD2B975E7F00FFDDB3 /* DepartmentCell.swift */; };
 		44857EC02B97676000FFDDB3 /* EmployeesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857EBF2B97676000FFDDB3 /* EmployeesHeaderView.swift */; };
 		44857ECF2B98664800FFDDB3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857ECE2B98664800FFDDB3 /* SearchBar.swift */; };
+		44857ED12B989B3A00FFDDB3 /* EmployeeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857ED02B989B3A00FFDDB3 /* EmployeeDetailsView.swift */; };
 		448DD2012B962E29008F159E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DD2002B962E29008F159E /* AppDelegate.swift */; };
 		448DD2032B962E29008F159E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DD2022B962E29008F159E /* SceneDelegate.swift */; };
 		448DD20A2B962E2A008F159E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448DD2092B962E2A008F159E /* Assets.xcassets */; };
@@ -49,7 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		44857E642B971B7900FFDDB3 /* DetailsEmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsEmployeeViewController.swift; sourceTree = "<group>"; };
+		44857E642B971B7900FFDDB3 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		44857E732B971ED400FFDDB3 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		44857E752B971F8200FFDDB3 /* Di.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Di.swift; sourceTree = "<group>"; };
 		44857E772B971FA200FFDDB3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		44857EBD2B975E7F00FFDDB3 /* DepartmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCell.swift; sourceTree = "<group>"; };
 		44857EBF2B97676000FFDDB3 /* EmployeesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesHeaderView.swift; sourceTree = "<group>"; };
 		44857ECE2B98664800FFDDB3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		44857ED02B989B3A00FFDDB3 /* EmployeeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsView.swift; sourceTree = "<group>"; };
 		448DD1FD2B962E29008F159E /* kode-employees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kode-employees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		448DD2002B962E29008F159E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		448DD2022B962E29008F159E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,12 +117,13 @@
 			path = EmployeesViewController;
 			sourceTree = "<group>";
 		};
-		44857E632B97118300FFDDB3 /* DetailsEmployeeViewController */ = {
+		44857E632B97118300FFDDB3 /* EmployeeDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				44857E642B971B7900FFDDB3 /* DetailsEmployeeViewController.swift */,
+				44857E642B971B7900FFDDB3 /* EmployeeDetailsViewController.swift */,
+				44857ED02B989B3A00FFDDB3 /* EmployeeDetailsView.swift */,
 			);
-			path = DetailsEmployeeViewController;
+			path = EmployeeDetailsViewController;
 			sourceTree = "<group>";
 		};
 		44857E832B97253200FFDDB3 /* Services */ = {
@@ -245,7 +248,7 @@
 		448DD2152B962E39008F159E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				44857E632B97118300FFDDB3 /* DetailsEmployeeViewController */,
+				44857E632B97118300FFDDB3 /* EmployeeDetailsViewController */,
 				44857E622B97117600FFDDB3 /* EmployeesViewController */,
 			);
 			path = Controllers;
@@ -392,7 +395,7 @@
 				44857E942B97268700FFDDB3 /* NetworkError.swift in Sources */,
 				44857E9D2B97325800FFDDB3 /* EmployeesView.swift in Sources */,
 				44857EBC2B975E4200FFDDB3 /* DepartmentsCollectionView.swift in Sources */,
-				44857E652B971B7900FFDDB3 /* DetailsEmployeeViewController.swift in Sources */,
+				44857E652B971B7900FFDDB3 /* EmployeeDetailsViewController.swift in Sources */,
 				44857E8C2B9725E200FFDDB3 /* EmployeesEndPoint.swift in Sources */,
 				44857E822B97249100FFDDB3 /* EmloyeesResponse.swift in Sources */,
 				44857EA22B97340000FFDDB3 /* EmployeesTableView.swift in Sources */,
@@ -410,6 +413,7 @@
 				44857E762B971F8200FFDDB3 /* Di.swift in Sources */,
 				44857E7C2B9721D800FFDDB3 /* UIColor.swift in Sources */,
 				44857E7F2B9723E300FFDDB3 /* Employee.swift in Sources */,
+				44857ED12B989B3A00FFDDB3 /* EmployeeDetailsView.swift in Sources */,
 				44857E782B971FA200FFDDB3 /* Router.swift in Sources */,
 				44857E742B971ED400FFDDB3 /* EmployeesViewController.swift in Sources */,
 			);
