@@ -47,6 +47,8 @@ extension EmployeesTableView: UITableViewDelegate, UITableViewDataSource, UIScro
         let employee = employees[indexPath.row]
         
         onCellTapped?(employee)
+        
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
