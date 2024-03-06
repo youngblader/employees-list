@@ -10,14 +10,14 @@ import UIKit
 protocol Router {
     var di: Di! { get set }
     
-    func navigateToDetailsEmpolyeeController(_ from: UIViewController)
+    func navigateToDetailsEmpolyeeController(_ employee: Employee, _ from: UIViewController)
 }
 
 final class RouterImpl: Router {
     weak var di: Di!
     
-    func navigateToDetailsEmpolyeeController(_ from: UIViewController) {
-        let controller = di.screenFactory.createDetailsEmployeeController()
+    func navigateToDetailsEmpolyeeController(_ employee: Employee, _ from: UIViewController) {
+        let controller = di.screenFactory.createDetailsEmployeeController(employee)
         
         from.navigationController?.pushViewController(controller, animated: true)
     }

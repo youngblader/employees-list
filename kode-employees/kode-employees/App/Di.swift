@@ -11,16 +11,23 @@ final class Di {
     static let shared = Di()
     
     //MARK: Services
+    var employeesService: EmployeesService
     
     var router: Router
     var screenFactory: ScreenFactory
     
     init() {
+        employeesService = EmployeesServiceImpl()
         router = RouterImpl()
         screenFactory = ScreenFactoryImpl()
         
         screenFactory.di = self
         router.di = self
+    }
+    
+    //MARK: - Providers
+    var employeesProvider: EmployeesProviderImpl {
+        return EmployeesProviderImpl(employeesService: employeesService, router: router)
     }
 }
 
