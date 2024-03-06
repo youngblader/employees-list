@@ -38,6 +38,10 @@
 		44857EB82B973A8E00FFDDB3 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44857EAF2B973A8E00FFDDB3 /* Inter-Medium.ttf */; };
 		44857EB92B973A8E00FFDDB3 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44857EB02B973A8E00FFDDB3 /* Inter-Bold.ttf */; };
 		44857EBA2B973A8E00FFDDB3 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44857EB12B973A8E00FFDDB3 /* Inter-Black.ttf */; };
+		44857EBC2B975E4200FFDDB3 /* DepartmentsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857EBB2B975E4200FFDDB3 /* DepartmentsCollectionView.swift */; };
+		44857EBE2B975E7F00FFDDB3 /* DepartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857EBD2B975E7F00FFDDB3 /* DepartmentCell.swift */; };
+		44857EC02B97676000FFDDB3 /* EmployeesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857EBF2B97676000FFDDB3 /* EmployeesHeaderView.swift */; };
+		44857ECF2B98664800FFDDB3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857ECE2B98664800FFDDB3 /* SearchBar.swift */; };
 		448DD2012B962E29008F159E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DD2002B962E29008F159E /* AppDelegate.swift */; };
 		448DD2032B962E29008F159E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DD2022B962E29008F159E /* SceneDelegate.swift */; };
 		448DD20A2B962E2A008F159E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448DD2092B962E2A008F159E /* Assets.xcassets */; };
@@ -73,6 +77,10 @@
 		44857EAF2B973A8E00FFDDB3 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		44857EB02B973A8E00FFDDB3 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		44857EB12B973A8E00FFDDB3 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		44857EBB2B975E4200FFDDB3 /* DepartmentsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsCollectionView.swift; sourceTree = "<group>"; };
+		44857EBD2B975E7F00FFDDB3 /* DepartmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCell.swift; sourceTree = "<group>"; };
+		44857EBF2B97676000FFDDB3 /* EmployeesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesHeaderView.swift; sourceTree = "<group>"; };
+		44857ECE2B98664800FFDDB3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		448DD1FD2B962E29008F159E /* kode-employees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kode-employees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		448DD2002B962E29008F159E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		448DD2022B962E29008F159E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				44857EA42B97342100FFDDB3 /* EmployeeCell.swift */,
+				44857EBD2B975E7F00FFDDB3 /* DepartmentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -168,6 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				44857EA12B97340000FFDDB3 /* EmployeesTableView.swift */,
+				44857EBB2B975E4200FFDDB3 /* DepartmentsCollectionView.swift */,
+				44857EBF2B97676000FFDDB3 /* EmployeesHeaderView.swift */,
+				44857ECE2B98664800FFDDB3 /* SearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,16 +391,20 @@
 				44857E882B97254C00FFDDB3 /* API.swift in Sources */,
 				44857E942B97268700FFDDB3 /* NetworkError.swift in Sources */,
 				44857E9D2B97325800FFDDB3 /* EmployeesView.swift in Sources */,
+				44857EBC2B975E4200FFDDB3 /* DepartmentsCollectionView.swift in Sources */,
 				44857E652B971B7900FFDDB3 /* DetailsEmployeeViewController.swift in Sources */,
 				44857E8C2B9725E200FFDDB3 /* EmployeesEndPoint.swift in Sources */,
 				44857E822B97249100FFDDB3 /* EmloyeesResponse.swift in Sources */,
 				44857EA22B97340000FFDDB3 /* EmployeesTableView.swift in Sources */,
 				44857E912B97265100FFDDB3 /* NetworkMethod.swift in Sources */,
+				44857EBE2B975E7F00FFDDB3 /* DepartmentCell.swift in Sources */,
 				448DD2012B962E29008F159E /* AppDelegate.swift in Sources */,
 				44857EA52B97342100FFDDB3 /* EmployeeCell.swift in Sources */,
+				44857ECF2B98664800FFDDB3 /* SearchBar.swift in Sources */,
 				44857E8E2B97260500FFDDB3 /* EmployeesService.swift in Sources */,
 				44857E7A2B971FC600FFDDB3 /* ScreenFactory.swift in Sources */,
 				448DD2032B962E29008F159E /* SceneDelegate.swift in Sources */,
+				44857EC02B97676000FFDDB3 /* EmployeesHeaderView.swift in Sources */,
 				44857E8A2B9725BE00FFDDB3 /* EndPoint.swift in Sources */,
 				44857E9A2B97307400FFDDB3 /* EmployeesProvider.swift in Sources */,
 				44857E762B971F8200FFDDB3 /* Di.swift in Sources */,
