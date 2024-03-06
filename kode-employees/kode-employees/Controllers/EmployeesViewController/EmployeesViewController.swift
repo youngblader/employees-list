@@ -32,7 +32,7 @@ final class EmployeesViewController: UIViewController {
         fetchEmployees()
         
         employeesView.employeesTableView.onCellTapped = { employee in
-            self.presentDetailsEmployeeController(employee)
+            self.presentEmployeeDetailsController(employee)
         }
         
         employeesView.employeesHeaderView.departmentsCollectionView.onCellTapped = { department in
@@ -74,7 +74,7 @@ final class EmployeesViewController: UIViewController {
         employeesView.updateEmployees(filtredEmployees)
     }
     
-    private func presentDetailsEmployeeController(_ employee: Employee) {
-        provider.router.navigateToDetailsEmpolyeeController(employee, self)
+    private func presentEmployeeDetailsController(_ employee: Employee) {
+        provider.router.navigateToEmployeeDetailsController(employee, self)
     }
 }
