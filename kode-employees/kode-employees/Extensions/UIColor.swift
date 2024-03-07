@@ -14,4 +14,5 @@ extension UIColor {
     static let placeholderGray = UIColor(red: 0.76, green: 0.76, blue: 0.78, alpha: 1.00)
     static let darkGray = UIColor(red: 0.33, green: 0.33, blue: 0.36, alpha: 1.00)
     static let black = UIColor(red: 0.02, green: 0.02, blue: 0.06, alpha: 1.00)
+    static let alertBlack = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
 }
