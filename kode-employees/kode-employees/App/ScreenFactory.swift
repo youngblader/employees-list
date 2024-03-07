@@ -24,7 +24,7 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func createEmployeeDetailsViewController(_ employee: Employee) -> EmployeeDetailsViewController {
-        let controller = EmployeeDetailsViewController(employee: employee)
+        let controller = EmployeeDetailsViewController(provider: di.employeeDetailsProvider, employee: employee)
         
         return controller
     }
