@@ -89,9 +89,9 @@ final class EmployeesViewController: UIViewController, SortDelegate {
     private func sortingBirthdayEmployees() {
         filtredEmployees.sort { $0.birthday < $1.birthday }
     }
-    
+
     // MARK: - Public Sort Delegate
-    func setSortType(_ sortType: SortType) {
+    func sortTypeChanged(_ sortType: SortType) {
         self.selectedSortType = sortType
         self.filteringEmployees(selectedDepartment)
     }
