@@ -22,6 +22,8 @@ final class EmployeesTableView: UITableView {
         self.delegate = self
         self.dataSource = self
         
+//        self.backgroundView = emptyView
+        
         self.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
         
         self.separatorStyle = .none
@@ -56,6 +58,8 @@ extension EmployeesTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = EmoloyeesSections.init(rawValue: section)
+        
+//        tableView.backgroundView = EmptyView(frame: CGRect (x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
         
         switch section {
         case .employees:
