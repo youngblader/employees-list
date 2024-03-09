@@ -48,6 +48,10 @@ final class EmployeesViewController: UIViewController, SortDelegate {
             self.selectedDepartment = department
             self.filteringEmployees(department)
         }
+        
+        employeesView.onEndRefreshing = {
+            self.fetchEmployees()
+        }
     }
     
     //MARK: - Init
@@ -69,16 +73,11 @@ final class EmployeesViewController: UIViewController, SortDelegate {
                 self.employees = employees
                 self.filtredEmployees = employees
                 
-                self.update()
+                self.filteringEmployees(selectedDepartment)
             } catch {
                 print("ERROR", error.localizedDescription)
             }
         }
-    }
-    
-    private func update() {
-        self.sortingAlpabetEmployees()
-        self.updateEmployees(filtredEmployees)
     }
     
     //MARK: Sort
@@ -89,7 +88,7 @@ final class EmployeesViewController: UIViewController, SortDelegate {
     private func sortingBirthdayEmployees() {
         filtredEmployees.sort { $0.birthday < $1.birthday }
     }
-
+    
     // MARK: - Public Sort Delegate
     func sortTypeChanged(_ sortType: SortType) {
         self.selectedSortType = sortType

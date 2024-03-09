@@ -10,10 +10,20 @@ import SnapKit
 
 final class EmployeesView: UIView {
     //MARK: - Views
-    private var refreshControl = UIRefreshControl()
-    
     let employeesTableView = EmployeesTableView()
     let employeesHeaderView = EmployeesHeaderView()
+    
+    var onEndRefreshing: (()->())?
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        
+        refresh.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        
+        refresh.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        
+        return refresh
+    }()
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -40,8 +50,9 @@ final class EmployeesView: UIView {
     }
     
     //MARK: - Actions
-    @objc private func handleRefresh() {
-//        refreshControl.endRefreshing()
+    @objc private func handleRefreshControl() {
+        self.onEndRefreshing?()
+        refreshControl.endRefreshing()
     }
 }
 
@@ -49,15 +60,13 @@ final class EmployeesView: UIView {
 private extension EmployeesView {
     func setupStyleView() {
         self.backgroundColor = .white
-        
-//        self.refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
     
     func setupViews() {
         self.addSubview(employeesTableView)
         self.addSubview(employeesHeaderView)
         
-//        employeesTableView.addSubview(refreshControl)
+        employeesTableView.addSubview(refreshControl)
     }
     
     func setupConstraints() {
