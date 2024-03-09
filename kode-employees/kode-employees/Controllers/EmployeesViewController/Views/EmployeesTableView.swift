@@ -7,13 +7,9 @@
 
 import UIKit
 
-private enum EmoloyeesSections: Int, CaseIterable {
-    case employees
-}
-
 final class EmployeesTableView: UITableView {
     private var employees: [Employee] = []
-
+    
     var onCellTapped: ((Employee)->())?
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -21,8 +17,6 @@ final class EmployeesTableView: UITableView {
         
         self.delegate = self
         self.dataSource = self
-        
-//        self.backgroundView = emptyView
         
         self.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
         
@@ -52,37 +46,22 @@ extension EmployeesTableView: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return EmoloyeesSections.allCases.count
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = EmoloyeesSections.init(rawValue: section)
         
-//        tableView.backgroundView = EmptyView(frame: CGRect (x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
-        
-        switch section {
-        case .employees:
-            return employees.count
-        default:
+        if employees.isEmpty {
             return 0
+        } else {
+            return employees.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = EmoloyeesSections.init(rawValue: indexPath.section)
+        let cell = tableView.dequeueReusableCell(withIdentifier: EmployeeCell.reuseId, for: indexPath) as! EmployeeCell
         
-        switch section {
-        case .employees:
-            let cell = tableView.dequeueReusableCell(withIdentifier: EmployeeCell.reuseId, for: indexPath) as! EmployeeCell
-            
-            let employee = employees[indexPath.row]
-            
-            cell.update(employee)
-            
-            return cell
-        default:
-            return UITableViewCell()
-        }
+        let employee = employees[indexPath.row]
+        
+        cell.update(employee)
+        
+        return cell
     }
 }
