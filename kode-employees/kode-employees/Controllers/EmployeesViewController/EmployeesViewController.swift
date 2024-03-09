@@ -30,11 +30,6 @@ final class EmployeesViewController: UIViewController, SortDelegate {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        presentSortEmployeesController()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +42,10 @@ final class EmployeesViewController: UIViewController, SortDelegate {
         employeesView.employeesHeaderView.departmentsCollectionView.onCellTapped = { department in
             self.selectedDepartment = department
             self.filteringEmployees(department)
+        }
+        
+        employeesView.onEndRefreshing = {
+            self.fetchEmployees()
         }
     }
     
@@ -69,16 +68,11 @@ final class EmployeesViewController: UIViewController, SortDelegate {
                 self.employees = employees
                 self.filtredEmployees = employees
                 
-                self.update()
+                self.filteringEmployees(selectedDepartment)
             } catch {
                 print("ERROR", error.localizedDescription)
             }
         }
-    }
-    
-    private func update() {
-        self.sortingAlpabetEmployees()
-        self.updateEmployees(filtredEmployees)
     }
     
     //MARK: Sort
@@ -89,7 +83,7 @@ final class EmployeesViewController: UIViewController, SortDelegate {
     private func sortingBirthdayEmployees() {
         filtredEmployees.sort { $0.birthday < $1.birthday }
     }
-
+    
     // MARK: - Public Sort Delegate
     func sortTypeChanged(_ sortType: SortType) {
         self.selectedSortType = sortType

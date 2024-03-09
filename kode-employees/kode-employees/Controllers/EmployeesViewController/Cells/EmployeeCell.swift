@@ -43,11 +43,11 @@ final class EmployeeCell: UITableViewCell {
         let image = UIImageView()
         
         image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 36
         
         image.widthAnchor.constraint(equalToConstant: 72).isActive = true
         image.heightAnchor.constraint(equalToConstant: 72).isActive = true
-        
-        image.layer.cornerRadius = 36
         
         return image
     }()
