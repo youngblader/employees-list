@@ -11,7 +11,7 @@ protocol ScreenFactory {
     var di: Di! { get set }
     
     func createEmployeesController() -> UINavigationController
-    func createEmployeeDetailsViewController(_ employee: Employee) -> EmployeeDetailsViewController
+    func createEmployeeDetailsController(_ employee: Employee) -> EmployeeDetailsViewController
 }
 
 final class ScreenFactoryImpl: ScreenFactory {
@@ -23,7 +23,7 @@ final class ScreenFactoryImpl: ScreenFactory {
         return UINavigationController(rootViewController: controller)
     }
     
-    func createEmployeeDetailsViewController(_ employee: Employee) -> EmployeeDetailsViewController {
+    func createEmployeeDetailsController(_ employee: Employee) -> EmployeeDetailsViewController {
         let controller = EmployeeDetailsViewController(provider: di.employeeDetailsProvider, employee: employee)
         
         return controller

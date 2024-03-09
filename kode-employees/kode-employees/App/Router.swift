@@ -17,7 +17,7 @@ final class RouterImpl: Router {
     weak var di: Di!
     
     func navigateToEmployeeDetailsController(_ employee: Employee, _ from: UIViewController) {
-        let controller = di.screenFactory.createEmployeeDetailsViewController(employee)
+        let controller = di.screenFactory.createEmployeeDetailsController(employee)
         
         from.navigationController?.pushViewController(controller, animated: true)
     }

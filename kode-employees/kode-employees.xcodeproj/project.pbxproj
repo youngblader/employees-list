@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440445262B9B131C00416A6D /* EmployeesSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440445252B9B131C00416A6D /* EmployeesSortView.swift */; };
+		4462298E2B9A289800BBAB94 /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462298D2B9A289800BBAB94 /* RadioButtonView.swift */; };
 		44857E652B971B7900FFDDB3 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E642B971B7900FFDDB3 /* EmployeeDetailsViewController.swift */; };
 		44857E682B971D0800FFDDB3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E672B971D0800FFDDB3 /* SnapKit */; };
 		44857E702B971EB500FFDDB3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E6F2B971EB500FFDDB3 /* SDWebImage */; };
@@ -52,9 +54,12 @@
 		44CE76EA2B99F59A008EE663 /* EmployeeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE76E92B99F59A008EE663 /* EmployeeInfoView.swift */; };
 		44CE76EC2B9A0772008EE663 /* CallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE76EB2B9A0772008EE663 /* CallService.swift */; };
 		44CE76EF2B9A0B8F008EE663 /* EmployeeDetailsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE76EE2B9A0B8F008EE663 /* EmployeeDetailsProvider.swift */; };
+		44CE76F22B9A1F9C008EE663 /* EmployeesSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE76F12B9A1F9C008EE663 /* EmployeesSortViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		440445252B9B131C00416A6D /* EmployeesSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesSortView.swift; sourceTree = "<group>"; };
+		4462298D2B9A289800BBAB94 /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
 		44857E642B971B7900FFDDB3 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		44857E732B971ED400FFDDB3 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		44857E752B971F8200FFDDB3 /* Di.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Di.swift; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 		44CE76E92B99F59A008EE663 /* EmployeeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInfoView.swift; sourceTree = "<group>"; };
 		44CE76EB2B9A0772008EE663 /* CallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallService.swift; sourceTree = "<group>"; };
 		44CE76EE2B9A0B8F008EE663 /* EmployeeDetailsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsProvider.swift; sourceTree = "<group>"; };
+		44CE76F12B9A1F9C008EE663 /* EmployeesSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesSortViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4462298C2B9A288900BBAB94 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4462298D2B9A289800BBAB94 /* RadioButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		44857E622B97117600FFDDB3 /* EmployeesViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +285,7 @@
 		448DD2152B962E39008F159E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				44CE76F02B9A1F84008EE663 /* EmployeesSortViewController */,
 				44857E632B97118300FFDDB3 /* EmployeeDetailsViewController */,
 				44857E622B97117600FFDDB3 /* EmployeesViewController */,
 			);
@@ -331,6 +346,16 @@
 				44CE76EE2B9A0B8F008EE663 /* EmployeeDetailsProvider.swift */,
 			);
 			path = EmployeeDetailsProvider;
+			sourceTree = "<group>";
+		};
+		44CE76F02B9A1F84008EE663 /* EmployeesSortViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44CE76F12B9A1F9C008EE663 /* EmployeesSortViewController.swift */,
+				440445252B9B131C00416A6D /* EmployeesSortView.swift */,
+				4462298C2B9A288900BBAB94 /* Views */,
+			);
+			path = EmployeesSortViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,7 +453,9 @@
 				44857E9D2B97325800FFDDB3 /* EmployeesView.swift in Sources */,
 				44857EBC2B975E4200FFDDB3 /* DepartmentsCollectionView.swift in Sources */,
 				44857E652B971B7900FFDDB3 /* EmployeeDetailsViewController.swift in Sources */,
+				44CE76F22B9A1F9C008EE663 /* EmployeesSortViewController.swift in Sources */,
 				44857E8C2B9725E200FFDDB3 /* EmployeesEndPoint.swift in Sources */,
+				4462298E2B9A289800BBAB94 /* RadioButtonView.swift in Sources */,
 				44857E822B97249100FFDDB3 /* EmloyeesResponse.swift in Sources */,
 				44857EA22B97340000FFDDB3 /* EmployeesTableView.swift in Sources */,
 				44857E912B97265100FFDDB3 /* NetworkMethod.swift in Sources */,
@@ -442,6 +469,7 @@
 				44857E8E2B97260500FFDDB3 /* EmployeesService.swift in Sources */,
 				44CE76EF2B9A0B8F008EE663 /* EmployeeDetailsProvider.swift in Sources */,
 				44857E7A2B971FC600FFDDB3 /* ScreenFactory.swift in Sources */,
+				440445262B9B131C00416A6D /* EmployeesSortView.swift in Sources */,
 				448DD2032B962E29008F159E /* SceneDelegate.swift in Sources */,
 				44857EC02B97676000FFDDB3 /* EmployeesHeaderView.swift in Sources */,
 				44857E8A2B9725BE00FFDDB3 /* EndPoint.swift in Sources */,
