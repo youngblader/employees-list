@@ -12,7 +12,7 @@ import SDWebImage
 final class EmployeeCell: UITableViewCell {
     static let reuseId = "EmployeeCell"
     
-    private let nameLabel = TextLabel(fontLabel: .medium)
+    private let nameLabel = TextLabel(fontLabel: .medium, linesNumber: 1)
     private let departmentLabel = TextLabel(size: 13, color: .darkGray, fontLabel: .regular)
     private let tagLabel = TextLabel(size: 14, color: .textGray, fontLabel: .medium)
     
@@ -66,7 +66,7 @@ final class EmployeeCell: UITableViewCell {
     //MARK: Public update
     func update(_ employee: Employee) {
         nameLabel.text = employee.getEmployeeFullName()
-        departmentLabel.text = employee.department.rawValue
+        departmentLabel.text = employee.department.title
         tagLabel.text = employee.userTag.lowercased()
         
         avatarImageView.sd_setImage(with: URL(string: employee.avatarUrl), placeholderImage: UIImage(named: "plug.png"))

@@ -25,7 +25,6 @@ final class EmployeesTableView: UITableView {
         self.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
         
         self.separatorStyle = .none
-//        self.allowsSelection = false
         self.showsVerticalScrollIndicator = false
         
         self.register(EmployeeCell.self, forCellReuseIdentifier: EmployeeCell.reuseId)
@@ -42,11 +41,13 @@ final class EmployeesTableView: UITableView {
     }
 }
 
-extension EmployeesTableView: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+extension EmployeesTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let employee = employees[indexPath.row]
         
         onCellTapped?(employee)
+        
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

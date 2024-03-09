@@ -16,7 +16,7 @@ final class EmployeesHeaderView: UIView {
         let view = UIView()
         
         view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        view.backgroundColor = .placeholderGray.withAlphaComponent(0.4)
+        view.backgroundColor = .placeholderGray.withAlphaComponent(0.6)
         
         return view
     }()

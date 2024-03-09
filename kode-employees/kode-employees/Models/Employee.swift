@@ -12,7 +12,8 @@ struct Employee: Codable {
     let id: String
     let avatarUrl: String
     let firstName, lastName, userTag: String
-    let position, birthday, phone: String
+    let position, birthday: String
+    let phone: String?
     let department: Department
     
     func getEmployeeFullName() -> String {

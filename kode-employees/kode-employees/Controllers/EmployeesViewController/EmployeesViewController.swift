@@ -7,9 +7,13 @@
 
 import UIKit
 
-final class EmployeesViewController: UIViewController {
+final class EmployeesViewController: UIViewController, SortDelegate {
     private let provider: EmployeesProvider
+    
     private var employees: [Employee] = []
+    private var filtredEmployees: [Employee] = []
+    private var selectedSortType: SortType = .alphabet
+    private var selectedDepartment: Department = .all
     
     // MARK: - LoadView
     private var employeesView: EmployeesView {
@@ -26,17 +30,23 @@ final class EmployeesViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presentSortEmployeesController()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchEmployees()
         
         employeesView.employeesTableView.onCellTapped = { employee in
-            self.presentDetailsEmployeeController(employee)
+            self.presentEmployeeDetailsController(employee)
         }
         
         employeesView.employeesHeaderView.departmentsCollectionView.onCellTapped = { department in
-            self.filtredEmployees(department)
+            self.selectedDepartment = department
+            self.filteringEmployees(department)
         }
     }
     
@@ -50,31 +60,80 @@ final class EmployeesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Private
     private func fetchEmployees() {
         Task {
             do {
-                let employees = try await  provider.employeesService.fetchEmployees()
+                let employees = try await provider.employeesService.fetchEmployees()
                 
                 self.employees = employees
-                employeesView.updateEmployees(employees)
+                self.filtredEmployees = employees
+                
+                self.update()
             } catch {
-                print("ERROR", error)
+                print("ERROR", error.localizedDescription)
             }
         }
     }
     
-    private func filtredEmployees(_ department: Department) {
-        if department == .all {
-            employeesView.updateEmployees(employees)
-            return
-        }
-        
-        let filtredEmployees = employees.filter({ $0.department.title == department.title })
-        
-        employeesView.updateEmployees(filtredEmployees)
+    private func update() {
+        self.sortingAlpabetEmployees()
+        self.updateEmployees(filtredEmployees)
     }
     
-    private func presentDetailsEmployeeController(_ employee: Employee) {
-        provider.router.navigateToDetailsEmpolyeeController(employee, self)
+    //MARK: Sort
+    private func sortingAlpabetEmployees() {
+        filtredEmployees.sort { $0.firstName < $1.firstName }
+    }
+    
+    private func sortingBirthdayEmployees() {
+        filtredEmployees.sort { $0.birthday < $1.birthday }
+    }
+    
+    // MARK: - Public Sort Delegate
+    func setSortType(_ sortType: SortType) {
+        self.selectedSortType = sortType
+        self.filteringEmployees(selectedDepartment)
+    }
+    
+    private func updateEmployees(_ employees: [Employee]) {
+        employeesView.updateEmployees(employees)
+    }
+    
+    private func applyEmployeeSorting() {
+        switch selectedSortType {
+        case .alphabet:
+            sortingAlpabetEmployees()
+        case .birthday:
+            sortingBirthdayEmployees()
+        }
+    }
+    
+    private func filteringEmployees(_ department: Department) {
+        if department == .all {
+            filtredEmployees = employees
+        } else {
+            filtredEmployees = employees.filter({ $0.department.title == department.title })
+        }
+        
+        self.applyEmployeeSorting()
+        self.updateEmployees(filtredEmployees)
+    }
+    
+    private func presentSortEmployeesController() {
+        let controller = EmployeesSortViewController(sortType: selectedSortType)
+        controller.sortDelegate = self
+        
+        let vc = UINavigationController(rootViewController: controller)
+        
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+        }
+        
+        navigationController?.present(vc, animated: true)
+    }
+    
+    private func presentEmployeeDetailsController(_ employee: Employee) {
+        provider.router.navigateToEmployeeDetailsController(employee, self)
     }
 }

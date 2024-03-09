@@ -12,12 +12,15 @@ final class Di {
     
     //MARK: Services
     var employeesService: EmployeesService
+    var callService: CallService
     
     var router: Router
     var screenFactory: ScreenFactory
     
     init() {
         employeesService = EmployeesServiceImpl()
+        callService = CallServiceImpl()
+
         router = RouterImpl()
         screenFactory = ScreenFactoryImpl()
         
@@ -28,6 +31,10 @@ final class Di {
     //MARK: - Providers
     var employeesProvider: EmployeesProviderImpl {
         return EmployeesProviderImpl(employeesService: employeesService, router: router)
+    }
+    
+    var employeeDetailsProvider: EmployeeDetailsProviderImpl {
+        return EmployeeDetailsProviderImpl(callService: callService, router: router)
     }
 }
 
