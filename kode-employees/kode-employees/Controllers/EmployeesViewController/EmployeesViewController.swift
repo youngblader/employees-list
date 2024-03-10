@@ -15,6 +15,7 @@ enum EmployeesState {
     case error
 }
 
+
 final class EmployeesViewController: UIViewController, SortDelegate {
     private let provider: EmployeesProvider
     
@@ -59,6 +60,14 @@ final class EmployeesViewController: UIViewController, SortDelegate {
         employeesView.errorView.onRetryRequest = {
             self.fetchEmployees()
         }
+        
+        employeesView.employeesHeaderView.searchBar.onFilterButtonTapped = {
+            self.presentSortEmployeesController()
+        }
+        
+        employeesView.employeesHeaderView.searchBar.onSearchTextChanged = { text in
+            self.searchEmployees(text)
+        }
     }
     
     //MARK: - Init
@@ -89,6 +98,21 @@ final class EmployeesViewController: UIViewController, SortDelegate {
                 employeesView.state = .error
                 print("ERROR", error.localizedDescription)
             }
+        }
+    }
+    
+    //MARK: Search
+    private func searchEmployees(_ searchText: String) {
+        let searchedEmployees = self.filtredEmployees.filter({ employee in
+            return employee.firstName.lowercased().prefix(searchText.count) == searchText.lowercased() ||
+            employee.lastName.lowercased().prefix(searchText.count) == searchText.lowercased() ||
+            employee.userTag.lowercased().prefix(searchText.count) == searchText.lowercased()
+        })
+        
+        if searchedEmployees.isEmpty && !searchText.isEmpty {
+            employeesView.state = .noFiltredData
+        } else {
+            self.updateEmployees(searchedEmployees.isEmpty ? filtredEmployees : searchedEmployees)
         }
     }
     
