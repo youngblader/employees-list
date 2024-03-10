@@ -7,6 +7,15 @@
 
 import UIKit
 
+//State Pattern
+enum EmployeesState {
+    case loading
+    case loaded([Employee])
+    case noFiltredData
+    case error
+}
+
+
 final class EmployeesViewController: UIViewController, SortDelegate {
     private let provider: EmployeesProvider
     
@@ -45,7 +54,19 @@ final class EmployeesViewController: UIViewController, SortDelegate {
         }
         
         employeesView.onEndRefreshing = {
+            self.fetchEmployees(true)
+        }
+        
+        employeesView.errorView.onRetryRequest = {
             self.fetchEmployees()
+        }
+        
+        employeesView.employeesHeaderView.searchBar.onFilterButtonTapped = {
+            self.presentSortEmployeesController()
+        }
+        
+        employeesView.employeesHeaderView.searchBar.onSearchTextChanged = { text in
+            self.searchEmployees(text)
         }
     }
     
@@ -60,8 +81,12 @@ final class EmployeesViewController: UIViewController, SortDelegate {
     }
     
     //MARK: - Private
-    private func fetchEmployees() {
+    private func fetchEmployees(_ isRefresh: Bool = false) {
         Task {
+            if !isRefresh {
+                employeesView.state = .loading
+            }
+            
             do {
                 let employees = try await provider.employeesService.fetchEmployees()
                 
@@ -70,8 +95,24 @@ final class EmployeesViewController: UIViewController, SortDelegate {
                 
                 self.filteringEmployees(selectedDepartment)
             } catch {
+                employeesView.state = .error
                 print("ERROR", error.localizedDescription)
             }
+        }
+    }
+    
+    //MARK: Search
+    private func searchEmployees(_ searchText: String) {
+        let searchedEmployees = self.filtredEmployees.filter({ employee in
+            return employee.firstName.lowercased().prefix(searchText.count) == searchText.lowercased() ||
+            employee.lastName.lowercased().prefix(searchText.count) == searchText.lowercased() ||
+            employee.userTag.lowercased().prefix(searchText.count) == searchText.lowercased()
+        })
+        
+        if searchedEmployees.isEmpty && !searchText.isEmpty {
+            employeesView.state = .noFiltredData
+        } else {
+            self.updateEmployees(searchedEmployees.isEmpty ? filtredEmployees : searchedEmployees)
         }
     }
     

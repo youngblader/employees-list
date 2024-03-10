@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		440445262B9B131C00416A6D /* EmployeesSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440445252B9B131C00416A6D /* EmployeesSortView.swift */; };
+		44452CF62B9C56F800233571 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44452CF52B9C56F800233571 /* EmptyView.swift */; };
+		44452D002B9C966E00233571 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44452CFF2B9C966E00233571 /* ErrorView.swift */; };
 		4462298E2B9A289800BBAB94 /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462298D2B9A289800BBAB94 /* RadioButtonView.swift */; };
 		44857E652B971B7900FFDDB3 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44857E642B971B7900FFDDB3 /* EmployeeDetailsViewController.swift */; };
 		44857E682B971D0800FFDDB3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44857E672B971D0800FFDDB3 /* SnapKit */; };
@@ -59,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		440445252B9B131C00416A6D /* EmployeesSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesSortView.swift; sourceTree = "<group>"; };
+		44452CF52B9C56F800233571 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		44452CFF2B9C966E00233571 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = ../ErrorView.swift; sourceTree = "<group>"; };
 		4462298D2B9A289800BBAB94 /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
 		44857E642B971B7900FFDDB3 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
 		44857E732B971ED400FFDDB3 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				44857EBB2B975E4200FFDDB3 /* DepartmentsCollectionView.swift */,
 				44857EBF2B97676000FFDDB3 /* EmployeesHeaderView.swift */,
 				44857ECE2B98664800FFDDB3 /* SearchBar.swift */,
+				44452CF52B9C56F800233571 /* EmptyView.swift */,
+				44452CFF2B9C966E00233571 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				44857E9D2B97325800FFDDB3 /* EmployeesView.swift in Sources */,
 				44857EBC2B975E4200FFDDB3 /* DepartmentsCollectionView.swift in Sources */,
 				44857E652B971B7900FFDDB3 /* EmployeeDetailsViewController.swift in Sources */,
+				44452D002B9C966E00233571 /* ErrorView.swift in Sources */,
 				44CE76F22B9A1F9C008EE663 /* EmployeesSortViewController.swift in Sources */,
 				44857E8C2B9725E200FFDDB3 /* EmployeesEndPoint.swift in Sources */,
 				4462298E2B9A289800BBAB94 /* RadioButtonView.swift in Sources */,
@@ -472,6 +479,7 @@
 				440445262B9B131C00416A6D /* EmployeesSortView.swift in Sources */,
 				448DD2032B962E29008F159E /* SceneDelegate.swift in Sources */,
 				44857EC02B97676000FFDDB3 /* EmployeesHeaderView.swift in Sources */,
+				44452CF62B9C56F800233571 /* EmptyView.swift in Sources */,
 				44857E8A2B9725BE00FFDDB3 /* EndPoint.swift in Sources */,
 				44857E9A2B97307400FFDDB3 /* EmployeesProvider.swift in Sources */,
 				44857E762B971F8200FFDDB3 /* Di.swift in Sources */,
