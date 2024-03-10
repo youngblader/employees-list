@@ -10,16 +10,58 @@ import SnapKit
 
 final class EmployeesView: UIView {
     //MARK: - Views
-    private var refreshControl = UIRefreshControl()
-    
     let employeesTableView = EmployeesTableView()
     let employeesHeaderView = EmployeesHeaderView()
+    
+    private lazy var emptyView = EmptyView()
+    let errorView = ErrorView()
+    
+    var onEndRefreshing: (()->())?
+    
+    private let acitvityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
+        
+        return indicator
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        
+        refresh.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        
+        refresh.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        
+        return refresh
+    }()
+    
+    //State
+    var state: EmployeesState = .error {
+        didSet {
+            switch state {
+            case .loading:
+                employeesTableView.backgroundView = acitvityIndicator
+            case .loaded(let employees):
+                employeesHeaderView.isHidden = false
+                employeesTableView.backgroundView = nil
+                employeesTableView.update(employees)
+            case .noFiltredData:
+                employeesTableView.update([])
+                employeesTableView.backgroundView = emptyView
+            case .error:
+                employeesTableView.update([])
+                employeesHeaderView.isHidden = true
+                employeesTableView.backgroundView = errorView
+            }
+        }
+    }
     
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupStyleView()
         setupViews()
         setupConstraints()
         
@@ -32,7 +74,11 @@ final class EmployeesView: UIView {
     
     //MARK: - Public updates
     func updateEmployees(_ employees: [Employee]) {
-        employeesTableView.update(employees)
+        if employees.isEmpty {
+            state = .noFiltredData
+        } else {
+            state = .loaded(employees)
+        }
     }
     
     func updateDepartments() {
@@ -40,24 +86,21 @@ final class EmployeesView: UIView {
     }
     
     //MARK: - Actions
-    @objc private func handleRefresh() {
-//        refreshControl.endRefreshing()
+    @objc private func handleRefreshControl() {
+        self.onEndRefreshing?()
+        refreshControl.endRefreshing()
     }
 }
 
 //MARK: - SetupViews
 private extension EmployeesView {
-    func setupStyleView() {
+    func setupViews() {
         self.backgroundColor = .white
         
-//        self.refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-    }
-    
-    func setupViews() {
         self.addSubview(employeesTableView)
         self.addSubview(employeesHeaderView)
         
-//        employeesTableView.addSubview(refreshControl)
+        employeesTableView.addSubview(refreshControl)
     }
     
     func setupConstraints() {

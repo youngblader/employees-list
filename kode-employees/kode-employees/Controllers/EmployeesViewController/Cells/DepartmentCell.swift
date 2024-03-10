@@ -60,11 +60,12 @@ private extension DepartmentCell {
     
     func setupConstraints() {
         nameLabel.snp.makeConstraints { make in
-            make.top.left.right.equalTo(contentView).inset(10)
+            make.top.equalTo(contentView).inset(8)
+            make.left.right.equalTo(contentView).inset(12)
         }
         
         bottomView.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom)//.offset(10)
+            make.top.equalTo(nameLabel.snp.bottom)
             make.left.right.bottom.equalTo(contentView)
         }
     }

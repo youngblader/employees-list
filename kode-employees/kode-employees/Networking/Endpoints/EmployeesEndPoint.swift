@@ -37,7 +37,8 @@ extension EmployeesEndPoint: Endpoint {
         switch self {
         case .getEmpoloyees:
             return [
-                "Accept": "application/json, application/xml"
+                "Accept": "application/json, application/xml",
+                "Prefer": "code=200, dynamic=true"
             ]
         }
     }
