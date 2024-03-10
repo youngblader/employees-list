@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class EmployeesHeaderView: UIView {
-    private var searchBar = SearchBar()
+    var searchBar = SearchBar()
     var departmentsCollectionView = DepartmentsCollectionView()
     
     private lazy var separatorView: UIView = {
