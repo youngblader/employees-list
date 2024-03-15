@@ -9,19 +9,8 @@ import UIKit
 import SnapKit
 
 final class DepartmentCell: UICollectionViewCell {
+    //MARK: - Properties
     static let reuseId = "DepartmentCell"
-    
-    private let nameLabel = TextLabel(size: 15, color: .textGray, fontLabel: .medium, linesNumber: 1)
-    
-    private lazy var bottomView: UIView = {
-        let view = UIView()
-        
-        view.isHidden = true
-        view.backgroundColor = .primary
-        view.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        
-        return view
-    }()
     
     override var isSelected: Bool {
         didSet {
@@ -34,6 +23,19 @@ final class DepartmentCell: UICollectionViewCell {
             }
         }
     }
+    
+    //MARK: - Views
+    private let nameLabel = TextLabel(size: 15, color: .textGray, fontLabel: .medium, linesNumber: 1)
+    
+    private lazy var bottomView: UIView = {
+        let view = UIView()
+        
+        view.isHidden = true
+        view.backgroundColor = .primary
+        view.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,8 +56,7 @@ final class DepartmentCell: UICollectionViewCell {
 
 private extension DepartmentCell {
     func setupViews() {
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(bottomView)
+        [nameLabel, bottomView].forEach({ contentView.addSubview($0) })
     }
     
     func setupConstraints() {

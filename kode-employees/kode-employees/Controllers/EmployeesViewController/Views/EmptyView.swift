@@ -42,9 +42,7 @@ private extension EmptyView {
     func setupViews() {
         self.addSubview(containerView)
         
-        containerView.addSubview(emptyImageView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(descriptionLabel)
+        [emptyImageView, titleLabel, descriptionLabel].forEach({ containerView.addSubview($0) })
     }
     
     func setupConstraints() {

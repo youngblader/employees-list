@@ -75,14 +75,11 @@ final class EmployeeCell: UITableViewCell {
 
 private extension EmployeeCell {
     func setupViews() {
-        contentView.addSubview(avatarImageView)
-        contentView.addSubview(employeeStackView)
+        [avatarImageView, employeeStackView].forEach({ contentView.addSubview($0) })
         
-        headerEmployeeView.addArrangedSubview(nameLabel)
-        headerEmployeeView.addArrangedSubview(tagLabel)
+        [nameLabel, tagLabel].forEach({ headerEmployeeView.addArrangedSubview($0) })
         
-        employeeStackView.addArrangedSubview(headerEmployeeView)
-        employeeStackView.addArrangedSubview(departmentLabel)
+        [headerEmployeeView, departmentLabel].forEach({ employeeStackView.addArrangedSubview($0) })
     }
     
     func setupConstraints() {

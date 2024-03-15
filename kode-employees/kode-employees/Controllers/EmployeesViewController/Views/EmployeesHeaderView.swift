@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class EmployeesHeaderView: UIView {
+    //MARK: - Views
     var searchBar = SearchBar()
     var departmentsCollectionView = DepartmentsCollectionView()
     
@@ -23,7 +24,7 @@ final class EmployeesHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         setupViews()
         setupConstraints()
     }
@@ -40,9 +41,7 @@ final class EmployeesHeaderView: UIView {
 
 extension EmployeesHeaderView {
     func setupViews() {
-        self.addSubview(departmentsCollectionView)
-        self.addSubview(searchBar)
-        self.addSubview(separatorView)
+        [departmentsCollectionView, searchBar, separatorView].forEach({ self.addSubview($0 )})
     }
     
     func setupConstraints() {

@@ -15,7 +15,8 @@ final class EmployeeDetailsView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
+        setupStyleSubviews()
         setupViews()
         setupConstraints()
     }
@@ -32,11 +33,12 @@ final class EmployeeDetailsView: UIView {
 }
 
 private extension EmployeeDetailsView {
-    func setupViews() {
+    func setupStyleSubviews() {
         self.backgroundColor = .backgroundLightGray
-        
-        self.addSubview(employeeProfileView)
-        self.addSubview(employeeContainerView)
+    }
+    
+    func setupViews() {
+        [employeeProfileView, employeeContainerView].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {

@@ -9,14 +9,15 @@ import UIKit
 import SnapKit
 
 final class EmployeesView: UIView {
+    //MARK: - Properties
+    var onEndRefreshing: (()->())?
+    
     //MARK: - Views
     let employeesTableView = EmployeesTableView()
     let employeesHeaderView = EmployeesHeaderView()
     
     private lazy var emptyView = EmptyView()
     let errorView = ErrorView()
-    
-    var onEndRefreshing: (()->())?
     
     private let acitvityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -97,9 +98,7 @@ private extension EmployeesView {
     func setupViews() {
         self.backgroundColor = .white
         
-        self.addSubview(employeesTableView)
-        self.addSubview(employeesHeaderView)
-        
+        [employeesTableView, employeesHeaderView].forEach { self.addSubview($0) }
         employeesTableView.addSubview(refreshControl)
     }
     

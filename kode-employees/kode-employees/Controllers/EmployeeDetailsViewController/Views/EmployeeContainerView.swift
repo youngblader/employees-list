@@ -9,16 +9,24 @@ import UIKit
 import SnapKit
 
 final class EmployeeContainerView: UIView {
-    private let employeeInfoBirthdayView = EmployeeInfoView()
-    private let employeeInfoPhoneView = EmployeeInfoView()
-    
+    //MARK: - Properties
     var onPhoneViewTapped: (()->())?
+    
+    //MARK: - Views
+    private let employeeInfoBirthdayView = EmployeeInfoView()
+    private lazy var employeeInfoPhoneView: EmployeeInfoView = {
+        let view = EmployeeInfoView()
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didPhoneViewTapped)))
+        
+        return view
+    }()
     
     private let separatorView: UIView = {
         let view = UIView()
         
         view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        view.backgroundColor = .backgroundLightGray
+        view.backgroundColor = UIColor.placeholderGray
         
         return view
     }()
@@ -41,20 +49,18 @@ final class EmployeeContainerView: UIView {
     }
     
     //MARK: Actions
-    @objc private func didViewTapped() {
+    @objc private func didPhoneViewTapped() {
         self.onPhoneViewTapped?()
     }
 }
 
 extension EmployeeContainerView {
-    func setupViews() {
+    func setupStyleSubviews() {
         self.backgroundColor = .white
-
-        self.addSubview(employeeInfoBirthdayView)
-        self.addSubview(separatorView)
-        self.addSubview(employeeInfoPhoneView)
-        
-        employeeInfoPhoneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didViewTapped)))
+    }
+    
+    func setupViews() {
+        [employeeInfoBirthdayView, separatorView, employeeInfoPhoneView].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {

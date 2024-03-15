@@ -9,8 +9,10 @@ import UIKit
 import SnapKit
 
 final class ErrorView: UIView {
+    //MARK: - Properties
     var onRetryRequest: (()->())?
     
+    //MARK: - Views
     private let titleLabel = TextLabel(label: "Какой-то сверхразум все сломал", size: 17, fontLabel: .semiBold, aligment: .center, linesNumber: 1)
     private let descriptionLabel = TextLabel(label: "Постараемся быстро починить", color: .textGray, fontLabel: .regular, aligment: .center, linesNumber: 1)
     
@@ -35,7 +37,7 @@ final class ErrorView: UIView {
         button.setTitle("Попробовать снова", for: .normal)
         button.setTitleColor(UIColor.primary, for: .normal)
         
-        button.addTarget(self, action: #selector(retry), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didRetryButtonTapped), for: .touchUpInside)
         
         return button
     }()
@@ -52,8 +54,7 @@ final class ErrorView: UIView {
     }
     
     //MARK: - Actions
-    @objc private func retry() {
-        print("HELLO")
+    @objc private func didRetryButtonTapped() {
         self.onRetryRequest?()
     }
 }
@@ -62,10 +63,7 @@ private extension ErrorView {
     func setupViews() {
         self.addSubview(containerView)
         
-        containerView.addSubview(emptyImageView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(descriptionLabel)
-        containerView.addSubview(retryButton)
+        [emptyImageView, titleLabel, descriptionLabel, retryButton].forEach({ containerView.addSubview($0) })
     }
     
     func setupConstraints() {

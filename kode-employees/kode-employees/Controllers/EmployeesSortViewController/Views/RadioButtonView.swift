@@ -26,6 +26,7 @@ final class RadioButtonView: UIView {
         self.titleLabel.text = title
         super.init(frame: .zero)
         
+        setupStyleSubviews()
         setupViews()
         setupConstraints()
     }
@@ -33,18 +34,19 @@ final class RadioButtonView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     @objc func didRadioButtonTapped(sender: UIButton) {
         sender.isSelected.toggle()
     }
 }
 
 private extension RadioButtonView {
-    func setupViews() {
+    func setupStyleSubviews() {
         self.backgroundColor = .white
-        
-        self.addSubview(button)
-        self.addSubview(titleLabel)
+    }
+    
+    func setupViews() {
+        [button, titleLabel].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {

@@ -9,8 +9,11 @@ import UIKit
 import SnapKit
 
 final class EmployeeInfoView: UIView {
+    //MARK: - Properties
+    
+    //MARK: - Views
     private let titleLabel = TextLabel(fontLabel: .medium)
-   
+    
     private let accessoryLabel: TextLabel = {
         let label =  TextLabel(color: .textGray, fontLabel: .medium)
         
@@ -30,7 +33,8 @@ final class EmployeeInfoView: UIView {
         
         return image
     }()
-
+    
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -56,9 +60,7 @@ final class EmployeeInfoView: UIView {
 
 private extension EmployeeInfoView {
     func setupViews() {
-        self.addSubview(iconImageView)
-        self.addSubview(titleLabel)
-        self.addSubview(accessoryLabel)
+        [iconImageView, titleLabel, accessoryLabel].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {
@@ -66,13 +68,13 @@ private extension EmployeeInfoView {
             make.left.equalTo(self)
             make.centerY.equalTo(self)
         }
-
+        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.left.equalTo(iconImageView.snp.right).offset(10)
             make.centerY.equalTo(self)
         }
-
+        
         accessoryLabel.snp.makeConstraints { make in
             make.centerY.equalTo(self)
             make.right.equalTo(self)

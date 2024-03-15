@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 final class EmployeeProfileView: UIView {
+    //MARK: - Properties
+
+    //MARK: - Views
     private let nameLabel = TextLabel(size: 24, fontLabel: .bold)
     private let tagLabel = TextLabel(size: 17, color: .textGray, fontLabel: .regular)
     private let departmentLabel = TextLabel(size: 13, color: .darkGray, fontLabel: .regular)
@@ -16,7 +19,7 @@ final class EmployeeProfileView: UIView {
     private let profileHeaderStackView = UIView()
     
     private let avatarImageView: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         
         image.layer.cornerRadius = 52
         image.contentMode = .scaleAspectFill
@@ -51,13 +54,9 @@ final class EmployeeProfileView: UIView {
 
 extension EmployeeProfileView {
     func setupViews() {
-        self.addSubview(avatarImageView)
-        self.addSubview(profileHeaderStackView)
-
-        profileHeaderStackView.addSubview(nameLabel)
-        profileHeaderStackView.addSubview(tagLabel)
+        [avatarImageView, profileHeaderStackView, departmentLabel].forEach({ self.addSubview($0) })
         
-        self.addSubview(departmentLabel)
+        [nameLabel, tagLabel].forEach({ profileHeaderStackView.addSubview($0) })
     }
     
     func setupConstraints() {

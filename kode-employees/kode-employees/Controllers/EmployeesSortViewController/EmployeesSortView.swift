@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class EmployeesSortView: UIView {
+    //MARK: - Properties
     private var selectedSortType: SortType
     
     var onAlphabetButtonTapped: (()->())?
@@ -18,6 +19,7 @@ final class EmployeesSortView: UIView {
     private lazy var alphabetView: RadioButtonView = {
         let view = RadioButtonView()
         
+        view.button.isSelected = selectedSortType == .alphabet
         view.button.addTarget(self, action: #selector(didAlphabetButtonTapped), for: .touchUpInside)
         
         return view
@@ -26,16 +28,18 @@ final class EmployeesSortView: UIView {
     private lazy var birthdayView: RadioButtonView = {
         let view = RadioButtonView(title: "По дню рождения")
         
+        view.button.isSelected = selectedSortType == .birthday
         view.button.addTarget(self, action: #selector(didBirthdayButtonTapped), for: .touchUpInside)
         
         return view
     }()
-
+    
     //MARK: - Init
     init(sortType: SortType) {
         self.selectedSortType = sortType
         super.init(frame: .zero)
         
+        setupStyleSubviews()
         setupViews()
         setupConstraints()
     }
@@ -61,14 +65,12 @@ final class EmployeesSortView: UIView {
 }
 
 extension EmployeesSortView {
-    func setupViews() {
+    func setupStyleSubviews() {
         self.backgroundColor = .white
-        
-        self.addSubview(alphabetView)
-        self.addSubview(birthdayView)
-        
-        alphabetView.button.isSelected = selectedSortType == .alphabet
-        birthdayView.button.isSelected = selectedSortType == .birthday
+    }
+    
+    func setupViews() {
+        [alphabetView, birthdayView].forEach({ self.addSubview($0) })
     }
     
     func setupConstraints() {
