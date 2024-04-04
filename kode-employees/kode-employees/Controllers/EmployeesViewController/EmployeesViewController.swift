@@ -15,7 +15,6 @@ enum EmployeesState {
     case error
 }
 
-
 final class EmployeesViewController: UIViewController, SortDelegate {
     private let provider: EmployeesProvider
     

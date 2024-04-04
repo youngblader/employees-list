@@ -37,14 +37,14 @@ final class EmployeesSortViewController: UIViewController {
         setup()
         setupNavigationBar()
         
-        employeesSortingView.onAlphabetButtonTapped = {
-            self.sortDelegate?.sortTypeChanged(.alphabet)
-            self.didBackButtonTapped()
+        employeesSortingView.onAlphabetButtonTapped = { [weak self] in
+            self?.sortDelegate?.sortTypeChanged(.alphabet)
+            self?.didBackButtonTapped()
         }
         
-        employeesSortingView.onBirthdayButtonTapped = {
-            self.sortDelegate?.sortTypeChanged(.birthday)
-            self.didBackButtonTapped()
+        employeesSortingView.onBirthdayButtonTapped = { [weak self] in
+            self?.sortDelegate?.sortTypeChanged(.birthday)
+            self?.didBackButtonTapped()
         }
     }
     
@@ -61,6 +61,10 @@ final class EmployeesSortViewController: UIViewController {
     //MARK: - Actions
     @objc private func didBackButtonTapped() {
         dismiss(animated: true)
+    }
+    
+    deinit {
+        print("deinited")
     }
 }
 
