@@ -1,5 +1,7 @@
 # Employees App List
 
+https://github.com/youngblader/kode-employees/assets/56676493/1a1de7f1-b4b2-4597-a586-dda0f8adfcb8
+
 ## Getting Started
 
 Follow this instruction to run all the system on your machine.
