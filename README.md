@@ -8,7 +8,7 @@ Follow this instruction to run all the system on your machine.
 
 Clone the repo
 ```
-git clone https://github.com/youngblader/kode-employees
+git clone https://github.com/youngblader/employees-list
 ```
 
 After cloning this repo, open XCode and build project
