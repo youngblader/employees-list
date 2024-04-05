@@ -17,9 +17,9 @@ final class EmployeesView: UIView {
     let employeesHeaderView = EmployeesHeaderView()
     
     private lazy var emptyView = EmptyView()
-    let errorView = ErrorView()
+    lazy var errorView = ErrorView()
     
-    private let acitvityIndicator: UIActivityIndicatorView = {
+    private lazy var acitvityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         
         indicator.hidesWhenStopped = true
