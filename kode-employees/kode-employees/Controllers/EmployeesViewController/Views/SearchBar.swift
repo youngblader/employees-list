@@ -52,7 +52,7 @@ private extension SearchBar {
         
         let cancelButtonAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.primary,
-            .font: UIFont(name: "Inter-SemiBold", size: 14)]
+            .font: UIFont(name: "Inter-SemiBold", size: 14) as Any]
         
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(cancelButtonAttributes, for: .normal)
     }
