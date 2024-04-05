@@ -9,8 +9,6 @@ import UIKit
 import SnapKit
 
 final class EmployeeInfoView: UIView {
-    //MARK: - Properties
-    
     //MARK: - Views
     private let titleLabel = TextLabel(fontLabel: .medium)
     
