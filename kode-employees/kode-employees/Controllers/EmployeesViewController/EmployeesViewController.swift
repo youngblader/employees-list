@@ -38,34 +38,38 @@ final class EmployeesViewController: UIViewController, SortDelegate {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    deinit {
+        print("deinited")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchEmployees()
         
-        employeesView.employeesTableView.onCellTapped = { employee in
-            self.presentEmployeeDetailsController(employee)
+        employeesView.employeesTableView.onCellTapped = { [weak self] employee in
+            self?.presentEmployeeDetailsController(employee)
         }
         
-        employeesView.employeesHeaderView.departmentsCollectionView.onCellTapped = { department in
-            self.selectedDepartment = department
-            self.filteringEmployees(department)
+        employeesView.employeesHeaderView.departmentsCollectionView.onCellTapped = { [weak self] department in
+            self?.selectedDepartment = department
+            self?.filteringEmployees(department)
         }
         
-        employeesView.onEndRefreshing = {
-            self.fetchEmployees(true)
+        employeesView.onEndRefreshing = { [weak self] in
+            self?.fetchEmployees(true)
         }
         
-        employeesView.errorView.onRetryRequest = {
-            self.fetchEmployees()
+        employeesView.errorView.onRetryRequest = { [weak self] in
+            self?.fetchEmployees()
         }
         
-        employeesView.employeesHeaderView.searchBar.onFilterButtonTapped = {
-            self.presentSortEmployeesController()
+        employeesView.employeesHeaderView.searchBar.onFilterButtonTapped = { [weak self] in
+            self?.presentSortEmployeesController()
         }
         
-        employeesView.employeesHeaderView.searchBar.onSearchTextChanged = { text in
-            self.searchEmployees(text)
+        employeesView.employeesHeaderView.searchBar.onSearchTextChanged = { [weak self] text in
+            self?.searchEmployees(text)
         }
     }
     

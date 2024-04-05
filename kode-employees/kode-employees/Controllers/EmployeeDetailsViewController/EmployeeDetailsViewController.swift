@@ -33,8 +33,8 @@ final class EmployeeDetailsViewController: UIViewController {
         setup()
         
         employeeDetailsView.update(employee)
-        employeeDetailsView.employeeContainerView.onPhoneViewTapped = {
-            self.didInfoPhoneViewTapped()
+        employeeDetailsView.employeeContainerView.onPhoneViewTapped = { [weak self] in
+            self?.didInfoPhoneViewTapped()
         }
     }
     
@@ -51,6 +51,10 @@ final class EmployeeDetailsViewController: UIViewController {
     
     private func makeAPhoneCall(_ phone: String) {
         provider.callService.call(phone)
+    }
+    
+    deinit {
+        print("deinited")
     }
     
     private func didInfoPhoneViewTapped() {
