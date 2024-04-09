@@ -62,10 +62,6 @@ final class EmployeesSortViewController: UIViewController {
     @objc private func didBackButtonTapped() {
         dismiss(animated: true)
     }
-    
-    deinit {
-        print("deinited")
-    }
 }
 
 private extension EmployeesSortViewController {

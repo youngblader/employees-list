@@ -38,10 +38,6 @@ final class EmployeesViewController: UIViewController, SortDelegate {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    deinit {
-        print("deinited")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -53,10 +53,6 @@ final class EmployeeDetailsViewController: UIViewController {
         provider.callService.call(phone)
     }
     
-    deinit {
-        print("deinited")
-    }
-    
     private func didInfoPhoneViewTapped() {
         guard let employeePhone = employee.phone else { return }
         
